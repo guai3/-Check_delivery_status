@@ -11,14 +11,25 @@
 
 </ul> -->
 
-<ul>
+<table>
+  <thead>
+    <tr>
+      <th data-type ="string">invoce</th>
+      <th data-type ="string">Team</th>
+      <th data-type ="number">Score</t>
+    </tr>
+  </thead>
+  <tbody>
   @forelse ($invoices as $invoice)
-  <li><a href="">{{ $invoice->invoice_number }}</a></li>
-  <li><a href ="/invoices/{{ $invoice->company}}">{{ $invoice->company }}</a></li>
-  <li><a href ="{{url('/invoices/', $invoice->id)}}">{{ $invoice->company }}</a></li>
+  <tr>
+    <td><a href="">{{ $invoice->invoice_number }}</a></td>
+
+    <td><a href ="/invoices/{{ $invoice->company}}">{{ $invoice->company }}</a></td>
+    <td><a href ="{{url('/invoices/', $invoice->id)}}">{{ $invoice->company }}</a></td>
+  </tr>
   @empty
-  <li>No posts yet </li>
+  <tr><td>No data</td><td>No data</td><td>No data</td> </tr>
   @endforelse
 
-</ul>
+  </tbody>
 @endsection
