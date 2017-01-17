@@ -1,26 +1,16 @@
-# Check_delivery_status
-送り状の配送状況を一覧できるようにします｡
+<?php
 
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-
-
-## ドットインストールとの相違点
-
-create database check_delivery_status;
-grant all on check_delivery_status.* to dbuser@localhost identified by 'hw8JUMe6';
-\q
-
-#### 05 postsテーブルを作ってみよう
-
-postテーブルでなくinvoiceテーブルを作成する
-
-php artisan make:migration create_invoices_table --create=invoices
-
-
-migration ファイル
-
-```php
-
+class CreateInvoicesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('invoices', function (Blueprint $table) {
@@ -31,9 +21,18 @@ migration ファイル
             $table->string('memo'); // メモ欄
             $table->string('status'); // 配達状況
             $table->string('site_url'); // 公式サイトURL
-            $table->boolean('flag') // フラグ
+            $table->boolean('flag'); // フラグ
             $table->timestamps();
         });
     }
 
-```
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('invoices');
+    }
+}
