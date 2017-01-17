@@ -40,12 +40,13 @@ tbody tr:nth-child(odd){
 
 th {
   cursor: pointer;
+  user-select: none;
 }
 
 th:after {
   content: '\f0dc';
   font-family: FontAwesome;
-  font-size: 12px;
+  font-size: 14px;
   color: #ccc;
   float: right;
   padding-top: 4px;
