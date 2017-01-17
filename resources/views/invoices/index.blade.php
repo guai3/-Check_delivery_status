@@ -22,11 +22,11 @@
   <tbody>
   @forelse ($invoices as $invoice)
   <tr>
-    <td><a href="">{{ $invoice->shipping_date }}</a></td>
-    <td><a href="">{{ $invoice->company }}</a></td>
+    <td>{{ $invoice->shipping_date }}</td>
+    <td>{{ $invoice->company }}</td>
     <td><a href="http://google.com">{{ $invoice->invoice_number }}</a></td>
     <td><a href="">{{ $invoice->memo }}</a></td>
-    <td><a href="">{{ $invoice->status }}</a></td>
+    <td>{{ $invoice->status }}</td>
     <td><a href="">{{ $invoice->company }}</a></td>
   </tr>
   @empty
