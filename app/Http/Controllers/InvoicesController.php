@@ -18,6 +18,11 @@ class InvoicesController extends Controller
       return view('invoices.index')->with('invoices',$invoices);
     }
 
+    public function edit($id) {
+      $invoice = Invoice::findOrFail($id);
+      return view('invoices.edit')->with('invoice', $invoice);
+    }
+
     public function create() {
       return view('invoices.create');
     }
@@ -38,6 +43,18 @@ class InvoicesController extends Controller
       $invoice->save();
 
       return redirect('/')->with('flash_message','送り状番号が追加されました');
+    }
+
+    public function update(Request $request, $id) {
+      $this->validate($request, [
+        'invoice_number' => 'required|digits:12' ,
+        'memo' => 'max:16' ,
+      ]);
+      $invoice = Invoice::findOrFail($id);
+      $invoice->memo = $request->memo;
+      $invoice->save();
+
+      return redirect('/')->with('flash_message','メモが更新されました');
     }
 
 }

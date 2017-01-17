@@ -27,7 +27,7 @@
     <td><a href="http://google.com">{{ $invoice->invoice_number }}</a></td>
     <td><a href="">{{ $invoice->memo }}</a></td>
     <td>{{ $invoice->status }}</td>
-    <td><a href="">{{ $invoice->company }}</a></td>
+    <td><a href="{{ action('InvoicesController@edit', $invoice->id) }}" class="fs12">[Edit]</a></td>
   </tr>
   @empty
   <tr><td>No data</td><td>No data</td><td>No data</td> </tr>
