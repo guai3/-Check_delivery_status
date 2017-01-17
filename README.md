@@ -37,3 +37,7 @@ migration ファイル
     }
 
 ```
+
+#### 07 Postモデルを作ってみよう
+
+php artisan make:model Invoice
