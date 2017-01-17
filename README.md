@@ -42,4 +42,7 @@ migration ファイル
 
 php artisan make:model Invoice
 
-#### 10 viewでテンプレートを呼びだそう
+
+### 13 PostsControllerを作ってみよう
+
+php artisan make:controller InvoicesController

@@ -1,18 +1,22 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>配達状況確認ツール</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Posts</h1>
-    <ul>
-      <li><a href="">title</a></li>
-      <li><a href="">title</a></li>
-      <li><a href="">title</a></li>
-    </ul>
-  </div>
-</body>
-</html>
+@extends('layouts.default')
+
+@section('title', '配達状況確認ツール')
+
+@section('content')
+<h1>配達状況確認ツール</h1>
+<!-- <ul>
+  @foreach ($invoices as $invoice)
+  <li><a href="">{{ $invoice->invoice_number }}</a></li>
+  @endforeach
+
+</ul> -->
+
+<ul>
+  @forelse ($invoices as $invoice)
+  <li><a href="">{{ $invoice->invoice_number }}</a></li>
+  @empty
+  <li>No posts yet </li>
+  @endforelse
+
+</ul>
+@endsection
