@@ -31,7 +31,7 @@
   <tr>
     <td>{{ $invoice->shipping_date }}</td>
     <td>{{ $invoice->company }}</td>
-    <td><a href="http://google.com">{{ $invoice->invoice_number }}</a></td>
+    <td><a href="{{ $invoice->site_url }}">{{ $invoice->invoice_number }}</a></td>
     <td>
       {{ $invoice->memo }}
       <a href="{{ action('InvoicesController@edit', $invoice->id) }}" class="fs12">

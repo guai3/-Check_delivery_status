@@ -35,12 +35,20 @@ class InvoicesController extends Controller
         'memo' => 'max:16' ,
       ]);
       $invoice = new Invoice();
+
       $invoice->invoice_number = $request->invoice_number;
+
+      $in_number = $request->invoice_number;
+      $in_url = "http://thira.plavox.info/transport/api/?t=[yamato]&no=[" . $in_number . "]&nojump=1";
+      $out_url = file_get_contents($in_url);
+      $invoice->site_url = $out_url;
+      
       $invoice->memo = $request->memo;
       $invoice->shipping_date = '2011-11-5';
-      $invoice->company = 'ヤマト';
+      $invoice->company = 'ヤマト運輸';
       $invoice->status = 'テスト';
-      $invoice->site_url = 'https://google.com';
+
+
       $invoice->flag = '1';
       $invoice->save();
 
