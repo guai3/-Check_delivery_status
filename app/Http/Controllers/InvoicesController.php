@@ -23,9 +23,11 @@ class InvoicesController extends Controller
     }
 
     public function store(Request $request) {
+      $this->validate($request, [
+        'invoice_number' => 'required|digits:12' ,
+      ]);
       $invoice = new Invoice();
       $invoice->invoice_number = $request->invoice_number;
-      // $invoice->invoice_number = '1111111111';
       $invoice->memo = $request->memo;
       $invoice->shipping_date = '2011-11-5';
       $invoice->company = 'ヤマト';
