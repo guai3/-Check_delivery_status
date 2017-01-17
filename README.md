@@ -1,14 +1,30 @@
-# Check_delivery_status
-送り状の配送状況を一覧できるようにします｡
+## 配達状況確認ツール
 
+**送り状の配送状況をテーブルで一覧できるようにします｡**
 
+![screenshot](screenshot.png "screenshot")
 
++ 送り状番号を手動で登録し､一覧画面を更新する度に､
+登録された送り状番号のステータスを更新します｡
++ 現在はヤマトのみ対応｡
+将来的にはWebで公表している企業はすべて対応する予定です｡
 
-## ドットインストールとの相違点
+### 動作環境
++ 開発環境はMacOS sierra + VirtualBox + vagrant + CentOS 6.8
++ 動作確認はMacOS sierra +  google chrome で行いました｡
 
+### 参考サイト
+[ドットインストール Laravel5入門 (全29回)](http://dotinstall.com/lessons/basic_laravel)
+
+[ドットインストール JavaScriptでテーブルのソート機能を作ろう (全16回)](http://dotinstall.com/lessons/tablesort_js)
+
+[ドットインストール ローカル開発環境の構築 [macOS編] (全14回)](http://dotinstall.com/lessons/basic_localdev_mac_v2)
+### ドットインストールLaravel入門とのコマンドの相違点
+
+#### 03 アプリケーションの設定をしていこう
 create database check_delivery_status;
+
 grant all on check_delivery_status.* to dbuser@localhost identified by 'hw8JUMe6';
-\q
 
 #### 05 postsテーブルを作ってみよう
 
@@ -17,32 +33,11 @@ postテーブルでなくinvoiceテーブルを作成する
 php artisan make:migration create_invoices_table --create=invoices
 
 
-migration ファイル
-
-```php
-
-    public function up()
-    {
-        Schema::create('invoices', function (Blueprint $table) {
-            $table->increments('id');
-            $table->date('shipping_date');  // 出荷日
-            $table->string('company'); // 配送会社
-            $table->string('invoice_number'); // 送り状番号
-            $table->string('memo'); // メモ欄
-            $table->string('status'); // 配達状況
-            $table->string('site_url'); // 公式サイトURL
-            $table->boolean('flag') // フラグ
-            $table->timestamps();
-        });
-    }
-
-```
-
 #### 07 Postモデルを作ってみよう
 
 php artisan make:model Invoice
 
 
-### 13 PostsControllerを作ってみよう
+#### 13 PostsControllerを作ってみよう
 
 php artisan make:controller InvoicesController

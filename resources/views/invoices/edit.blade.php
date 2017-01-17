@@ -4,13 +4,14 @@
 
 @section('content')
 <h1>
-  <a href="{{ url('/') }}" class="pull-right fs12">Back</a>
-  Edit Post
+  <a href="{{ url('/') }}" class="pull-right fs12">戻る</a>
+  メモ編集
 </h1>
 <form method="post" action="{{ url('/invoices', $invoice->id) }}">
   {{ csrf_field() }}
   {{ method_field('patch') }}
   <p>
+    送り状番号
     {{ $invoice->invoice_number }}
   </p>
   <p>
@@ -20,7 +21,7 @@
     @endif
   </p>
   <p>
-    <input type="submit" value="Update">
+    <input type="submit" value="メモ更新">
   </p>
 </form>
 @endsection

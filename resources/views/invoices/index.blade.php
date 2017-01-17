@@ -4,7 +4,14 @@
 
 @section('content')
 <h1>
-  <a href="{{ url('/invoices/create') }}" class="pull-right fs12">Add New</a>
+  <a href="#" onclick="location.reload();" class="pull-right fs12">
+    <i class="fa fa-refresh fa-lg" aria-hidden="true"></i>
+    更新
+  </a>
+  <a href="{{ url('/invoices/create') }}" class="pull-right fs12">
+    <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+    送り状追加
+  </a>
   配達状況確認ツール
 </h1>
 
@@ -16,7 +23,7 @@
       <th data-type ="string">送り状番号</th>
       <th data-type ="string">メモ</th>
       <th data-type ="string">荷物状況</th>
-      <th data-type ="string">編集</th>
+      <th data-type ="string">削除</th>
     </tr>
   </thead>
   <tbody>
@@ -25,14 +32,20 @@
     <td>{{ $invoice->shipping_date }}</td>
     <td>{{ $invoice->company }}</td>
     <td><a href="http://google.com">{{ $invoice->invoice_number }}</a></td>
-    <td><a href="">{{ $invoice->memo }}</a></td>
+    <td>
+      {{ $invoice->memo }}
+      <a href="{{ action('InvoicesController@edit', $invoice->id) }}" class="fs12">
+        <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
+      </a>
+    </td>
     <td>{{ $invoice->status }}</td>
     <td>
-      <a href="{{ action('InvoicesController@edit', $invoice->id) }}" class="fs12">[Edit]</a>
       <form action="{{ action('InvoicesController@destroy', $invoice->id) }}" id="form_{{ $invoice->id }}" method="post" style="display:inline">
         {{ csrf_field() }}
         {{ method_field('delete') }}
-        <a href="#" data-id="{{ $invoice->id }}" onclick="deletePost(this);" class="fs12">[x]</a>
+        <a href="#" data-id="{{ $invoice->id }}" onclick="deletePost(this);" class="fs12">
+          <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
+        </a>
       </form>
     </td>
   </tr>
@@ -45,7 +58,7 @@
   function deletePost(e) {
     'use strict';
 
-    if (confirm('are you sure?')) {
+    if (confirm('この送り状を削除してもよろしいですか?')) {
       document.getElementById('form_' + e.dataset.id).submit();
     }
   }

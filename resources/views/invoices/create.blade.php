@@ -4,8 +4,8 @@
 
 @section('content')
 <h1>
-  <a href="{{ url('/') }}" class="pull-right fs12">Back</a>
-  Add New
+  <a href="{{ url('/') }}" class="pull-right fs12">戻る</a>
+  送り状追加
 </h1>
 <form method="post" action="{{ url('/invoices') }}">
   {{ csrf_field() }}
