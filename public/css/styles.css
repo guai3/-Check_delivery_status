@@ -64,3 +64,27 @@ th.desc:after{
   font-family: FontAwesome;
   color: #000;
 }
+
+.pull-right {
+  float: right;
+}
+
+.fs12 {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+input[type=text] {
+  width: 200px;
+  padding: 5px;
+}
+
+input[type=submit] {
+  width: 100px;
+}
+
+textarea {
+  padding: 5px;
+  width: 350px;
+  height: 80px;
+}

@@ -11,3 +11,5 @@
 |
 */
 Route::get('/', 'InvoicesController@index');
+Route::get('/invoices/create', 'InvoicesController@create');
+Route::post('/invoices', 'InvoicesController@store');

@@ -3,7 +3,10 @@
 @section('title', '配達状況確認ツール')
 
 @section('content')
-<h1>配達状況確認ツール</h1>
+<h1>
+  <a href="{{ url('/invoices/create') }}" class="pull-right fs12">Add New</a>
+  配達状況確認ツール
+</h1>
 
 <table>
   <thead>
