@@ -11,9 +11,15 @@
   {{ csrf_field() }}
   <p>
     <input type="text" name="invoice_number" placeholder="送り状番号">
+    @if ($errors->has('invoice_number'))
+    <span class="error">{{ $errors->first('invoice_number') }}</span>
+    @endif
   </p>
   <p>
     <textarea name="memo" placeholder="メモ"></textarea>
+    @if ($errors->has('memo'))
+    <span class="error"> {{ $errors->first('memo') }}</span>
+    @endif
   </p>
   <p>
     <input type="submit" value="追加">
