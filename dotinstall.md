@@ -1,4 +1,4 @@
-### ドットインストールLaravel入門とのコマンドの相違点
+## ドットインストールLaravel入門とのコマンドの相違点
 
 #### 03 アプリケーションの設定をしていこう
 create database check_delivery_status;
