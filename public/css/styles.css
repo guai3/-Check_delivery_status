@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  width: 380px;
+  width: 1200px;
   margin: 0 auto;
 }
 
@@ -16,12 +16,8 @@ h1 {
   padding-bottom: 5px;
 }
 
-ul > li {
-  padding: 3px 0;
-}
-
 table {
-  width: 540px;
+  width: 1200px;
   margin: 20px auto;
   border-collapse: collapse;
 }
@@ -38,9 +34,9 @@ tbody tr:nth-child(odd){
 
 }
 
-.score {
+/*.score {
   text-align: right;
-}
+}*/
 
 th {
   cursor: pointer;
