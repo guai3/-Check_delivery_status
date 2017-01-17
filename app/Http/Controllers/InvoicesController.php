@@ -34,7 +34,7 @@ class InvoicesController extends Controller
       $invoice->flag = '1';
       $invoice->save();
 
-      return redirect('/');
+      return redirect('/')->with('flash_message','送り状番号が追加されました');
     }
 
 }
