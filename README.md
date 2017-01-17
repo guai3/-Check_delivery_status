@@ -1,6 +1,6 @@
 ## 配達状況確認ツール
 
-**送り状の配送状況をテーブルで一覧できるようにします｡**
+**日本の配送業者の送り状の配送状況をテーブルで一覧できるツールです｡**
 
 ![screenshot](screenshot.png "screenshot")
 
@@ -19,25 +19,3 @@
 [ドットインストール JavaScriptでテーブルのソート機能を作ろう (全16回)](http://dotinstall.com/lessons/tablesort_js)
 
 [ドットインストール ローカル開発環境の構築 [macOS編] (全14回)](http://dotinstall.com/lessons/basic_localdev_mac_v2)
-### ドットインストールLaravel入門とのコマンドの相違点
-
-#### 03 アプリケーションの設定をしていこう
-create database check_delivery_status;
-
-grant all on check_delivery_status.* to dbuser@localhost identified by 'hw8JUMe6';
-
-#### 05 postsテーブルを作ってみよう
-
-postテーブルでなくinvoiceテーブルを作成する
-
-php artisan make:migration create_invoices_table --create=invoices
-
-
-#### 07 Postモデルを作ってみよう
-
-php artisan make:model Invoice
-
-
-#### 13 PostsControllerを作ってみよう
-
-php artisan make:controller InvoicesController
