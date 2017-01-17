@@ -22,7 +22,7 @@
       <th data-type ="string">運送会社</th>
       <th data-type ="string">送り状番号</th>
       <th data-type ="string">メモ</th>
-      <th data-type ="string">荷物状況</th>
+      <th data-type ="string">配達状況</th>
       <th data-type ="string">削除</th>
     </tr>
   </thead>
