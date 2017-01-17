@@ -15,3 +15,4 @@ Route::get('/invoices/create', 'InvoicesController@create');
 Route::get('/invoices/{id}/edit', 'InvoicesController@edit');
 Route::post('/invoices', 'InvoicesController@store');
 Route::patch('/invoices/{id}', 'InvoicesController@update');
+Route::delete('/invoices/{id}', 'InvoicesController@destroy');

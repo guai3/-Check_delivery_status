@@ -23,6 +23,12 @@ class InvoicesController extends Controller
       return view('invoices.edit')->with('invoice', $invoice);
     }
 
+    public function destroy($id) {
+      $invoice = Invoice::findOrFail($id);
+      $invoice->delete();
+      return redirect('/')->with('flash_message','送り状番号が削除されました｡');
+    }
+
     public function create() {
       return view('invoices.create');
     }
@@ -47,7 +53,6 @@ class InvoicesController extends Controller
 
     public function update(Request $request, $id) {
       $this->validate($request, [
-        'invoice_number' => 'required|digits:12' ,
         'memo' => 'max:16' ,
       ]);
       $invoice = Invoice::findOrFail($id);
