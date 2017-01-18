@@ -51,7 +51,7 @@
     <td>{{ $invoice->status }}</td>
   </tr>
   @empty
-  <tr><td>No data</td><td>No data</td><td>No data</td> </tr>
+  <tr><td>No data</td><td>No data</td><td>No data</td><td>No data</td><td>No data</td> </tr>
   @endforelse
 
   </tbody>
