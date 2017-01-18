@@ -54,8 +54,13 @@ class InvoicesController extends Controller
       $arr = json_decode($json,true);
       $invoice->status = $arr["status"];
 
+      // 配達完了の場合フラグをセットし､ページ更新時にDBに問いあわせをしない｡
+      if ($arr["status"] == "配達完了"){
+        $invoice->flag = '1';
+      } else {
+        $invoice->flag = '0';
+      }
 
-      $invoice->flag = '1';
       $invoice->save();
 
       return redirect('/')->with('flash_message','送り状番号が追加されました');

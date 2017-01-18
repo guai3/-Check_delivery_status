@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-size: 16px;
   font-family: Verdana, sans-serif;
+  /*text-align: center;*/
 }
 
 .container {
@@ -39,13 +40,11 @@ tbody tr:nth-child(odd){
 
 }
 
-/*.score {
-  text-align: right;
-}*/
-
 th {
   cursor: pointer;
   user-select: none;
+  background-color: #337ab7;
+  color:white;
 }
 
 th:after {
@@ -71,28 +70,33 @@ th.desc:after{
   color: #000;
 }
 
+
+.edit {
+    text-align: center;
+}
+
 .pull-right {
   float: right;
 }
 
-.fs12 {
-  /*font-size: 12px;*/
-  font-weight: normal;
+.fs20 {
+  font-size: 20px;
+  /*font-weight: normal;*/
 }
 
-input[type=text] {
+/*input[type=text] {
   width: 200px;
   padding: 5px;
 }
 
 input[type=submit] {
   width: 100px;
-}
+}*/
 
 textarea {
   padding: 5px;
-  width: 350px;
-  height: 80px;
+  /*width: 350px;*/
+  /*height: 80px;*/
 }
 
 .hidden {
@@ -117,8 +121,3 @@ h1 link { color: white; }
 h1 a:visited { color: white; }
 h1 hover { color: white; }
 h1 active { color: white; }
-
-
-table th {
-
-}

@@ -3,25 +3,12 @@
 @section('title', 'Add New')
 
 @section('content')
-<h1>
-  <a href="{{ url('/') }}" class="pull-right fs12">戻る</a>
-  送り状追加
-</h1>
+<div class="edit">
+<h4>
+  送り状追加 &nbsp;
+  <a href="{{ url('/') }}">戻る</a>
 
-      <form class="form-horizontal" style="margin-bott0m:15px;">
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="email">Email</label>
-          <div class="col-sm-4">
-            <input type="text" id ="email" class="form-control" placeholder="email">
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-4">
-          <input type="submit" value="submit" class="btn btn-primary">
-        </div>
-        </div>
-      </form>
-
+</h4>
 <form method="post" action="{{ url('/invoices') }}">
   {{ csrf_field() }}
   <p>
@@ -31,13 +18,14 @@
     @endif
   </p>
   <p>
-    <textarea name="memo" placeholder="メモ"></textarea>
+    <input type="text" name="memo" placeholder="メモ">
     @if ($errors->has('memo'))
     <span class="error"> {{ $errors->first('memo') }}</span>
     @endif
   </p>
   <p>
-    <input type="submit" value="追加">
+    <input type="submit" value="送り状追加" class="btn btn-primary">
   </p>
 </form>
+</div>
 @endsection
