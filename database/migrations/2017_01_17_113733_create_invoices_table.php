@@ -15,7 +15,7 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('shipping_date');  // 出荷日
+            $table->string('shipping_date');  // 出荷日 ヤマトのデータがm/d の為stringで処理する
             $table->string('company'); // 配送会社
             $table->string('invoice_number'); // 送り状番号
             $table->string('memo'); // メモ欄

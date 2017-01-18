@@ -44,7 +44,6 @@ class InvoicesController extends Controller
       $invoice->site_url = $out_url;
 
       $invoice->memo = $request->memo;
-      $invoice->shipping_date = '2011-11-5';
       $invoice->company = 'ヤマト運輸';
 
       // jsonファイルを取得し､配送状況をセットする｡
@@ -53,6 +52,13 @@ class InvoicesController extends Controller
       $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
       $arr = json_decode($json,true);
       $invoice->status = $arr["status"];
+      
+      //発送日をセット ヤマトは年がないため文字列で実装｡
+      if (isset($arr["statusList"][0]["date"])) {
+        $invoice->shipping_date = $arr["statusList"][0]["date"];
+      }else {
+                $invoice->shipping_date = "未入力";
+      }
 
       // 配達完了の場合フラグをセットし､ページ更新時にDBに問いあわせをしない｡
       if ($arr["status"] == "配達完了"){
