@@ -14,7 +14,11 @@
 
 ### 動作環境
 + 開発環境はMacOS sierra + VirtualBox + vagrant + CentOS 6.8
++ PHP 5.6.29
++ Laravel Framework version 5.3.29
+
 + 動作確認はMacOS sierra +  google chrome で行いました｡
+
 
 ### API利用サイト
 [宅配便の配達状況 API](http://thira.plavox.info/transport/api/)
