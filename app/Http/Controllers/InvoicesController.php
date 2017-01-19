@@ -9,8 +9,22 @@ class InvoicesController extends Controller
     //
 
     public function index() {
-      $invoices = Invoice::latest('created_at')->get();
+      // $invoices = Invoice::latest('created_at')->get();
 
+
+      $invoices_flg_off = Invoice::where('flag',0)->get();
+
+      foreach($invoices_flg_off as $invoice_flg_off) {
+      // jsonファイルを取得し､配送状況をセットする｡
+        $json_url = "http://nanoappli.com/tracking/api/" . $invoice_flg_off->invoice_number . ".json ";
+        $json = file_get_contents($json_url);
+        $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+        $arr = json_decode($json,true);
+        $invoice_flg_off->status = $arr["status"];
+        $invoice_flg_off->save();
+      }
+
+      $invoices = Invoice::latest('created_at')->get();
       return view('invoices.index')->with('invoices',$invoices);
     }
 
@@ -52,7 +66,7 @@ class InvoicesController extends Controller
       $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
       $arr = json_decode($json,true);
       $invoice->status = $arr["status"];
-      
+
       //発送日をセット ヤマトは年がないため文字列で実装｡
       if (isset($arr["statusList"][0]["date"])) {
         $invoice->shipping_date = $arr["statusList"][0]["date"];
