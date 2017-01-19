@@ -12,7 +12,8 @@
 
 ### 動作環境
 + 開発環境はMacOS sierra + VirtualBox + vagrant + CentOS 6.8
-[ドットインストール ローカル開発環境の構築 macOS編 (全14回)](http://dotinstall.com/lessons/basic_localdev_mac_v2)
+
+参考サイト [ドットインストール ローカル開発環境の構築 macOS編 (全14回)](http://dotinstall.com/lessons/basic_localdev_mac_v2)
 + PHP 5.6.29
 + Laravel Framework version 5.3.29
 
